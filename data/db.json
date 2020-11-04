@@ -1,0 +1,17 @@
+{
+  "patients": [
+    {
+      "id": "123",
+      "name": "John Doe",
+      "active": true
+    },
+    {
+      "id": "456",
+      "name": "Jane Anderson",
+      "active": false
+    },
+    {
+      "id": "oU51bzU"
+    }
+  ]
+}
