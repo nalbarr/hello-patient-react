@@ -4,7 +4,6 @@ help:
 	@echo make run-ui
 	@echo make run-api
 	@echo make run
-	@echo make run
 
 install:
 	yarn install
