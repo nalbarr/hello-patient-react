@@ -17,3 +17,6 @@ run-api:
 run:
 	yarn dev
 
+clean:
+	rm -fr ./node_modules
+
