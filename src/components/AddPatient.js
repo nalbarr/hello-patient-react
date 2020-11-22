@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PatientDataService from "../services/PatientService";
 
 const AddPatient = () => {
+
     const initialPatientState = {
         id: null,
         name: "",

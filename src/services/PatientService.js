@@ -1,31 +1,33 @@
-import http from "../http-common";
+//import http from "../http-common";
+//import http from "../axios/instance";
+import axios from '../axios/instance';
 
 const getAll = () => {
-    return http.get("/patients");
+    return axios.get("/patients");
 };
 
 const get = id => {
-    return http.get(`/patients/${id}`);
+    return axios.get(`/patients/${id}`);
 };
 
 const create = data => {
-    return http.post("/patients", data);
+    return axios.post("/patients", data);
 };
 
 const update = (id, data) => {
-    return http.put(`/patients/${id}`, data);
+    return axios.put(`/patients/${id}`, data);
 };
 
 const remove = id => {
-    return http.delete(`/patients/${id}`);
+    return axios.delete(`/patients/${id}`);
 };
 
 const removeAll = () => {
-    return http.delete(`/patients`);
+    return axios.delete(`/patients`);
 };
 
 const findByName = name => {
-    return http.get(`/patients?name=${name}`);
+    return axios.get(`/patients?name=${name}`);
 };
 
 export default {

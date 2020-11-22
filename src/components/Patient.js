@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+
 import PatientDataService from "../services/PatientService";
 
 const Patient = props => {
+
     const initialPatientState = {
         id: null,
         name: "",

@@ -1,16 +1,34 @@
+// NAA. 1. remove useState?; will be replaced by redux via useDispatch, useSelector
 import React, { useState, useEffect } from "react";
-import PatientDataService from "../services/PatientService";
+// import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+// NAA. 2. replace service? with redux
+import PatientDataService from "../services/PatientService";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPatients } from "../actions/patients";
+import { getPatientData } from "../selectors";
+
 const PatientsList = () => {
-  const [patients, setPatients] = useState([]);
+  // NAA. 3. Instrument with redux dispatcher
+  const dispatch = useDispatch();
+
+  // NAA. 3. Pivot to redux
+  //useEffect(() => {
+  //  retrievePatients();
+  //}, []);
+  useEffect(() => {
+    dispatch(fetchPatients());
+  }, [dispatch]);
+
+  // NAA. 4. Pivot to redux. Map local state to redux selector
+  const initialPatientsData = useSelector(getPatientData);
+
+  // const [patientsData, setPatientsData] = useState([]);
+  const [patientsData, setPatientsData] = useState(initialPatientsData);
   const [currentPatient, setCurrentPatient] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchName, setSearchName] = useState("");
-
-  useEffect(() => {
-    retrievePatients();
-  }, []);
 
   const onChangeSearchName = e => {
     const searchName = e.target.value;
@@ -20,7 +38,7 @@ const PatientsList = () => {
   const retrievePatients = () => {
     PatientDataService.getAll()
       .then(response => {
-        setPatients(response.data);
+        setPatientsData(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -53,7 +71,7 @@ const PatientsList = () => {
   const findByName = () => {
     PatientDataService.findByName(searchName)
       .then(response => {
-        setPatients(response.data);
+        setPatientsData(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -87,8 +105,8 @@ const PatientsList = () => {
         <h4>Patients List</h4>
 
         <ul className="list-group">
-          {patients &&
-            patients.map((patient, index) => (
+          {patientsData &&
+            patientsData.map((patient, index) => (
               <li
                 className={
                   "list-group-item " + (index === currentIndex ? "active" : "")
@@ -144,3 +162,10 @@ const PatientsList = () => {
 };
 
 export default PatientsList;
+
+// NAA.  5. Not sure why below does not work
+// - connect component to store
+// function mapStateToProps(state) {
+//   return { patientsData: state.patientsData }
+// }
+// export default connect(mapStateToProps)(PatientsList);

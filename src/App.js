@@ -13,17 +13,17 @@ function App() {
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <a href="/patients" className="navbar-brand">
                     [ oa ]
-        </a>
+                </a>
                 <div className="navbar-nav mr-auto">
                     <li className="nav-item">
                         <Link to={"/patients"} className="nav-link">
                             Patients
-            </Link>
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <Link to={"/add"} className="nav-link">
                             Add
-            </Link>
+                        </Link>
                     </li>
                 </div>
             </nav>
