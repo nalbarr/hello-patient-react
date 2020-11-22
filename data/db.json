@@ -9,6 +9,11 @@
       "id": "456",
       "name": "Jane Anderson",
       "active": false
+    },
+    {
+      "id": "789",
+      "name": "Maria Jackson",
+      "active": true
     }
   ]
 }
