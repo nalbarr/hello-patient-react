@@ -1,5 +1,3 @@
-//import http from "../http-common";
-//import http from "../axios/instance";
 import axios from '../axios/instance';
 
 const getAll = () => {
@@ -30,7 +28,7 @@ const findByName = name => {
     return axios.get(`/patients?name=${name}`);
 };
 
-export default {
+const patientService = {
     getAll,
     get,
     create,
@@ -39,3 +37,6 @@ export default {
     removeAll,
     findByName
 };
+
+
+export default patientService;
