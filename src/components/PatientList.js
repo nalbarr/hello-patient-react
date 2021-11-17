@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 // NAA. 2. replace service? with redux
 import PatientDataService from "../services/PatientService";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPatients } from "../actions/patients";
+// NAA. RTK re-factor 9.
+// import { fetchPatients } from "../actions/patients";
+import { patientsActions } from "../store";
 import { getPatientData } from "../selectors";
 
 const PatientsList = () => {
@@ -18,7 +20,10 @@ const PatientsList = () => {
   //  retrievePatients();
   //}, []);
   useEffect(() => {
-    dispatch(fetchPatients());
+    // NAA. RTK re-factor 8.
+    // - move to slice reducer method
+    // dispatch(fetchPatients());
+    dispatch(patientsActions.getPatientData());
   }, [dispatch]);
 
   // NAA. 4. Pivot to redux. Map local state to redux selector
@@ -151,11 +156,11 @@ const PatientsList = () => {
             </Link>
           </div>
         ) : (
-            <div>
-              <br />
-              <p>Please click on a Patient...</p>
-            </div>
-          )}
+          <div>
+            <br />
+            <p>Please click on a Patient...</p>
+          </div>
+        )}
       </div>
     </div>
   );

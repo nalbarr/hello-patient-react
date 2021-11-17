@@ -1,10 +1,15 @@
-const initialData = {
+// NA. Move to store
+/*
+const initialState = {
     patientsData: [],
     isFetching: false,
     isError: '',
 };
+*/
 
-const patientsReducer = (state = initialData, action) => {
+// NA. Remove verbose reducer in favor of RTK.s
+/*
+const patientsReducer = (state = initialState, action) => {
     switch (action.type) {
         case "GET_PATIENTS_STARTED":
             return {
@@ -30,5 +35,6 @@ const patientsReducer = (state = initialData, action) => {
             return state;
     }
 };
+*/
 
-export default patientsReducer;
+// export default patientsReducer;

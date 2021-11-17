@@ -2,7 +2,7 @@
   "patients": [
     {
       "id": "123",
-      "name": "John Doe",
+      "name": "John Doe 1",
       "active": false
     },
     {
@@ -24,6 +24,11 @@
       "name": "john doe",
       "active": "true",
       "id": "Ncnnc8B"
+    },
+    {
+      "name": "John Doe",
+      "active": "true",
+      "id": "8V_WTh3"
     }
   ]
 }
